@@ -57,31 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
-    <Compile Include="MedicinedbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MedicinedbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicinedbDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MedicinedbDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicinedbDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MedicinedbDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicinedbDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MedicinedbDataSetPacients.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicinedbDataSetPacients.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\DoctorAuth.cs" />
@@ -106,12 +81,6 @@
     <Compile Include="View\FormAdministrator.Designer.cs">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormAdministratorCreatePacient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormAdministratorCreatePacient.Designer.cs">
-      <DependentUpon>FormAdministratorCreatePacient.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,61 +97,6 @@
     <EmbeddedResource Include="View\FormAdministrator.resx">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="MedicinedbDataSet.xsc">
-      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicinedbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicinedbDataSet.xss">
-      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet1.xsc">
-      <DependentUpon>MedicinedbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicinedbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicinedbDataSet1.xss">
-      <DependentUpon>MedicinedbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet2.xsc">
-      <DependentUpon>MedicinedbDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicinedbDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicinedbDataSet2.xss">
-      <DependentUpon>MedicinedbDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet3.xsc">
-      <DependentUpon>MedicinedbDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicinedbDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicinedbDataSet3.xss">
-      <DependentUpon>MedicinedbDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSetPacients.xsc">
-      <DependentUpon>MedicinedbDataSetPacients.xsd</DependentUpon>
-    </None>
-    <None Include="MedicinedbDataSetPacients.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicinedbDataSetPacients.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicinedbDataSetPacients.xss">
-      <DependentUpon>MedicinedbDataSetPacients.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

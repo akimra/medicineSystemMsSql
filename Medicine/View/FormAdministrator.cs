@@ -19,30 +19,9 @@ namespace Medicine.View
             parentForm = f;
         }
 
-        private void FormAdministrator_Load(object sender, EventArgs e)
-        {
-            
-            this.resultsTableAdapter.Fill(this.medicinedbDataSet3.Results);
-            
-            this.medOrganizationsTableAdapter.Fill(this.medicinedbDataSet2.MedOrganizations);
-            
-            this.medServicesTableAdapter.Fill(this.medicinedbDataSet1.MedServices);
-            
-            this.doctorsTableAdapter.Fill(this.medicinedbDataSet.Doctors);
-            
-            this.pacientsTableAdapter.Fill(this.medicinedbDataSetPacients.Pacients);
-
-        }
-
         private void FormAdministrator_FormClosed(object sender, FormClosedEventArgs e)
         {
             parentForm.Show();
-        }
-
-        private void ButtonCreatePacient_Click(object sender, EventArgs e)
-        {
-            FormAdministratorCreatePacient f = new FormAdministratorCreatePacient(this);
-            Hide();
         }
     }
 }

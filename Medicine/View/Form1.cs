@@ -65,6 +65,7 @@ namespace Medicine
                             FormAdministrator form = new FormAdministrator(this);
                             Hide();
                             form.Show();
+                            form.Enabled = true;
                             break;
                         case "pacient":
                             MessageBox.Show("zashel pacient");
