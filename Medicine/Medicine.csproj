@@ -57,6 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
+    <Compile Include="MedicinedbDataSet.cs">
+      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicinedbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\DoctorAuth.cs" />
@@ -97,6 +105,17 @@
     <EmbeddedResource Include="View\FormAdministrator.resx">
       <DependentUpon>FormAdministrator.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="MedicinedbDataSet.xsc">
+      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicinedbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicinedbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicinedbDataSet.xss">
+      <DependentUpon>MedicinedbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

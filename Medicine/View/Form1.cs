@@ -16,6 +16,7 @@ namespace Medicine
 {
     public partial class Form1 : Form
     {
+        private MainController control = new MainController();
         public string GetHash(string input)
         {
             byte[] hash;
@@ -35,50 +36,29 @@ namespace Medicine
         {
             string loginAuth = textBoxAuthLogin.Text;
             string passwordAuth = GetHash(textBoxAuthPassword.Text);
-            textBoxAuthLogin.Clear();
             textBoxAuthPassword.Clear();
-            using (MedicineDbContext db = new MedicineDbContext())
+            textBoxAuthLogin.Clear();
+            string authResult = control.Authorize(loginAuth, passwordAuth);
+            switch (authResult)
             {
-                List<IAuthProfile> authList = new List<IAuthProfile>();
-                IAuthProfile target = null;
-                authList.AddRange(db.Administrators);
-                authList.AddRange(db.PacientAuths);
-                authList.AddRange(db.DoctorAuths);
-                foreach (var a in authList)
-                {
-                    if (a.GetLogin() == loginAuth && a.GetHashPassword() == passwordAuth)
-                    {
-                        target = a;
-                        break;
-                    }
-                }
-                if (target == null)
-                {
-                    MessageBox.Show("Такого пользователя не существует");
-                }
-                else
-                {
-                    switch (target.GetTypeAuth())
-                    {
-                        case "administrator":
-                            MessageBox.Show("зашел админ");
-                            FormAdministrator form = new FormAdministrator(this);
-                            Hide();
-                            form.Show();
-                            form.Enabled = true;
-                            break;
-                        case "pacient":
-                            MessageBox.Show("zashel pacient");
-                            break;
-                        case "doctor":
-                            MessageBox.Show("zashel doc");
-                            break;
-                        default:
-                            MessageBox.Show("Что-то пошло не так");
-                            break;
-                    }
-                        
-                }
+                case "administrator":
+                    FormAdministrator form = new FormAdministrator(this);
+                    Hide();
+                    form.Show();
+                    form.Enabled = true;
+                    break;
+                case "pacient":
+                    MessageBox.Show("zashel pacient");
+                    break;
+                case "doctor":
+                    MessageBox.Show("zashel doc");
+                    break;
+                case "not found":
+                    MessageBox.Show("Пользователь с таким паролем и/или логином не найден");
+                    break;
+                default:
+                    MessageBox.Show("Что-то пошло не так");
+                    break;
             }
         }
     }
