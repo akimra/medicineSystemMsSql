@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonDeletePacient = new System.Windows.Forms.Button();
+            this.buttonUpdatePacient = new System.Windows.Forms.Button();
             this.buttonCreatePacient = new System.Windows.Forms.Button();
             this.dataGridViewFormAdministratorPacients = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +46,7 @@
             this.pacientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.medicinedbDataSet = new Medicine.MedicinedbDataSet();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonCreateDoctor = new System.Windows.Forms.Button();
             this.dataGridViewFormAdministratorDoctors = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fioDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +78,9 @@
             this.medOrganizationsTableAdapter = new Medicine.MedicinedbDataSetTableAdapters.MedOrganizationsTableAdapter();
             this.medServicesTableAdapter = new Medicine.MedicinedbDataSetTableAdapters.MedServicesTableAdapter();
             this.administratorsTableAdapter = new Medicine.MedicinedbDataSetTableAdapters.AdministratorsTableAdapter();
+            this.medicinedbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonEditDoctor = new System.Windows.Forms.Button();
+            this.buttonDeleteDoctor = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFormAdministratorPacients)).BeginInit();
@@ -92,6 +98,7 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFormAdministratorAdministrators)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.administratorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedbDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -109,6 +116,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonDeletePacient);
+            this.tabPage1.Controls.Add(this.buttonUpdatePacient);
             this.tabPage1.Controls.Add(this.buttonCreatePacient);
             this.tabPage1.Controls.Add(this.dataGridViewFormAdministratorPacients);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -118,6 +127,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пациенты";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeletePacient
+            // 
+            this.buttonDeletePacient.Location = new System.Drawing.Point(1025, 139);
+            this.buttonDeletePacient.Name = "buttonDeletePacient";
+            this.buttonDeletePacient.Size = new System.Drawing.Size(355, 63);
+            this.buttonDeletePacient.TabIndex = 3;
+            this.buttonDeletePacient.Text = "Удалить выбранного пациента";
+            this.buttonDeletePacient.UseVisualStyleBackColor = true;
+            this.buttonDeletePacient.Click += new System.EventHandler(this.ButtonDeletePacient_Click);
+            // 
+            // buttonUpdatePacient
+            // 
+            this.buttonUpdatePacient.Location = new System.Drawing.Point(1026, 74);
+            this.buttonUpdatePacient.Name = "buttonUpdatePacient";
+            this.buttonUpdatePacient.Size = new System.Drawing.Size(354, 58);
+            this.buttonUpdatePacient.TabIndex = 2;
+            this.buttonUpdatePacient.Text = "Изменить выбранного пациента";
+            this.buttonUpdatePacient.UseVisualStyleBackColor = true;
+            this.buttonUpdatePacient.Click += new System.EventHandler(this.ButtonUpdatePacient_Click);
             // 
             // buttonCreatePacient
             // 
@@ -150,6 +179,7 @@
             this.dataGridViewFormAdministratorPacients.ReadOnly = true;
             this.dataGridViewFormAdministratorPacients.RowHeadersWidth = 51;
             this.dataGridViewFormAdministratorPacients.RowTemplate.Height = 24;
+            this.dataGridViewFormAdministratorPacients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFormAdministratorPacients.Size = new System.Drawing.Size(1012, 621);
             this.dataGridViewFormAdministratorPacients.TabIndex = 0;
             // 
@@ -160,7 +190,7 @@
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 80;
+            this.idDataGridViewTextBoxColumn.Width = 125;
             // 
             // fioDataGridViewTextBoxColumn
             // 
@@ -237,6 +267,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonDeleteDoctor);
+            this.tabPage2.Controls.Add(this.buttonEditDoctor);
+            this.tabPage2.Controls.Add(this.buttonCreateDoctor);
             this.tabPage2.Controls.Add(this.dataGridViewFormAdministratorDoctors);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
@@ -245,6 +278,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Врачи";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonCreateDoctor
+            // 
+            this.buttonCreateDoctor.Location = new System.Drawing.Point(1025, 7);
+            this.buttonCreateDoctor.Name = "buttonCreateDoctor";
+            this.buttonCreateDoctor.Size = new System.Drawing.Size(355, 74);
+            this.buttonCreateDoctor.TabIndex = 1;
+            this.buttonCreateDoctor.Text = "Создать врача";
+            this.buttonCreateDoctor.UseVisualStyleBackColor = true;
+            this.buttonCreateDoctor.Click += new System.EventHandler(this.ButtonCreateDoctor_Click);
             // 
             // dataGridViewFormAdministratorDoctors
             // 
@@ -258,12 +301,15 @@
             this.specialityDataGridViewTextBoxColumn,
             this.roomDataGridViewTextBoxColumn,
             this.medOrganizationIdDataGridViewTextBoxColumn});
+            this.dataGridViewFormAdministratorDoctors.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridViewFormAdministratorDoctors.DataSource = this.doctorsBindingSource;
             this.dataGridViewFormAdministratorDoctors.Location = new System.Drawing.Point(7, 7);
+            this.dataGridViewFormAdministratorDoctors.MultiSelect = false;
             this.dataGridViewFormAdministratorDoctors.Name = "dataGridViewFormAdministratorDoctors";
             this.dataGridViewFormAdministratorDoctors.ReadOnly = true;
             this.dataGridViewFormAdministratorDoctors.RowHeadersWidth = 51;
             this.dataGridViewFormAdministratorDoctors.RowTemplate.Height = 24;
+            this.dataGridViewFormAdministratorDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFormAdministratorDoctors.Size = new System.Drawing.Size(1012, 621);
             this.dataGridViewFormAdministratorDoctors.TabIndex = 0;
             // 
@@ -344,6 +390,7 @@
             this.dataGridViewFormAdministratorOrganizations.ReadOnly = true;
             this.dataGridViewFormAdministratorOrganizations.RowHeadersWidth = 51;
             this.dataGridViewFormAdministratorOrganizations.RowTemplate.Height = 24;
+            this.dataGridViewFormAdministratorOrganizations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFormAdministratorOrganizations.Size = new System.Drawing.Size(1012, 621);
             this.dataGridViewFormAdministratorOrganizations.TabIndex = 0;
             // 
@@ -415,6 +462,7 @@
             this.dataGridViewFormAdministratorServices.ReadOnly = true;
             this.dataGridViewFormAdministratorServices.RowHeadersWidth = 51;
             this.dataGridViewFormAdministratorServices.RowTemplate.Height = 24;
+            this.dataGridViewFormAdministratorServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFormAdministratorServices.Size = new System.Drawing.Size(1012, 621);
             this.dataGridViewFormAdministratorServices.TabIndex = 0;
             // 
@@ -483,6 +531,7 @@
             this.dataGridViewFormAdministratorAdministrators.ReadOnly = true;
             this.dataGridViewFormAdministratorAdministrators.RowHeadersWidth = 51;
             this.dataGridViewFormAdministratorAdministrators.RowTemplate.Height = 24;
+            this.dataGridViewFormAdministratorAdministrators.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewFormAdministratorAdministrators.Size = new System.Drawing.Size(1012, 621);
             this.dataGridViewFormAdministratorAdministrators.TabIndex = 0;
             // 
@@ -529,6 +578,29 @@
             // 
             this.administratorsTableAdapter.ClearBeforeFill = true;
             // 
+            // medicinedbDataSetBindingSource
+            // 
+            this.medicinedbDataSetBindingSource.DataSource = this.medicinedbDataSet;
+            this.medicinedbDataSetBindingSource.Position = 0;
+            // 
+            // buttonEditDoctor
+            // 
+            this.buttonEditDoctor.Location = new System.Drawing.Point(1025, 87);
+            this.buttonEditDoctor.Name = "buttonEditDoctor";
+            this.buttonEditDoctor.Size = new System.Drawing.Size(355, 74);
+            this.buttonEditDoctor.TabIndex = 2;
+            this.buttonEditDoctor.Text = "Изменить выбранного врача";
+            this.buttonEditDoctor.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteDoctor
+            // 
+            this.buttonDeleteDoctor.Location = new System.Drawing.Point(1025, 167);
+            this.buttonDeleteDoctor.Name = "buttonDeleteDoctor";
+            this.buttonDeleteDoctor.Size = new System.Drawing.Size(355, 74);
+            this.buttonDeleteDoctor.TabIndex = 3;
+            this.buttonDeleteDoctor.Text = "Удалить врача";
+            this.buttonDeleteDoctor.UseVisualStyleBackColor = true;
+            // 
             // FormAdministrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -557,6 +629,7 @@
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFormAdministratorAdministrators)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.administratorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicinedbDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -584,14 +657,6 @@
         private System.Windows.Forms.DataGridView dataGridViewFormAdministratorAdministrators;
         private System.Windows.Forms.BindingSource administratorsBindingSource;
         private MedicinedbDataSetTableAdapters.AdministratorsTableAdapter administratorsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passportDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn omsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn specialityDataGridViewTextBoxColumn;
@@ -608,5 +673,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonCreatePacient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passportDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn omsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource medicinedbDataSetBindingSource;
+        private System.Windows.Forms.Button buttonDeletePacient;
+        private System.Windows.Forms.Button buttonUpdatePacient;
+        private System.Windows.Forms.Button buttonCreateDoctor;
+        private System.Windows.Forms.Button buttonDeleteDoctor;
+        private System.Windows.Forms.Button buttonEditDoctor;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medicine.Model
 {
-    class Result
+    public class Result
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

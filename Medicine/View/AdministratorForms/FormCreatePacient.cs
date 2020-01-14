@@ -12,13 +12,16 @@ using System.Windows.Forms;
 
 namespace Medicine.View.AdministratorForms
 {
-    public partial class FormAdministratorCreatePacient : Form
+    public partial class FormCreatePacient : Form
     {
-        private string action = "create";
+        private string action;
+        private int targetId;
         MainController control = new MainController();
         Form parentForm;
-        public FormAdministratorCreatePacient(Form f)
+        public FormCreatePacient(Form f, string act = "create", int target = -1)
         {
+            action = act;
+            targetId = target;
             parentForm = f;
             InitializeComponent();
         }
@@ -40,14 +43,25 @@ namespace Medicine.View.AdministratorForms
                 Job = textBoxCreatePacientJob.Text,
                 Position = textBoxCreatePacientPosition.Text
             };
+
             if (action == "update")
             {
-
+                if (targetId >= 0)
+                {
+                    control.UpdatePacient(pac, targetId);
+                }
+                else
+                {
+                    MessageBox.Show("Выберите изменяемую запись");
+                }
             }
             else
             {
-
+                control.CreatePacient(pac);
             }
+            FormAdministrator form = (FormAdministrator)parentForm;
+            form.UpdateDataBindings();
+            Close();
         }
 
         private void FormAdministratorCreatePacient_FormClosing(object sender, FormClosingEventArgs e)

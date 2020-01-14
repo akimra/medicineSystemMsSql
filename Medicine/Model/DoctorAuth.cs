@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Medicine.Model
 {
-    class DoctorAuth : IAuthProfile
+    public class DoctorAuth : IAuthProfile
     {
         [Key]
         [ForeignKey("Doctor")]

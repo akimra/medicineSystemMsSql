@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Medicine.Model
 {
-    enum ServiceType
+    public enum ServiceType
     {
         Inspect = 1,
         Laboratory = 2
     }
-    class MedService
+    public class MedService
     {
         public int Id { get; set; }
         public string Name { get; set; }

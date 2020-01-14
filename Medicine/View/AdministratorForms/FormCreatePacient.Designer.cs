@@ -1,6 +1,6 @@
 ﻿namespace Medicine.View.AdministratorForms
 {
-    partial class FormAdministratorCreatePacient
+    partial class FormCreatePacient
     {
         /// <summary>
         /// Required designer variable.

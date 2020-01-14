@@ -38,7 +38,7 @@ namespace Medicine
             string passwordAuth = GetHash(textBoxAuthPassword.Text);
             textBoxAuthPassword.Clear();
             textBoxAuthLogin.Clear();
-            string authResult = control.Authorize(loginAuth, passwordAuth);
+            string authResult = control.Authorize(loginAuth, passwordAuth); //возвращается тип авторизованного пользователя
             switch (authResult)
             {
                 case "administrator":

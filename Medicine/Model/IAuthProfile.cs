@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medicine.Model
 {
-    interface IAuthProfile
+    public interface IAuthProfile
     {
         string GetLogin();
         string GetHashPassword();

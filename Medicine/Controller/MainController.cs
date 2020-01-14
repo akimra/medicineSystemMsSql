@@ -10,7 +10,7 @@ namespace Medicine.Controller
 {
     class MainController
     {
-        private IAuthProfile currentUser = null;
+        private IAuthProfile currentUser;
 
         public string GetHash(string input)
         {
@@ -63,6 +63,55 @@ namespace Medicine.Controller
             using (MedicineDbContext db = new MedicineDbContext())
             {
                 db.Pacients.Add(pacient);
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdatePacient(Pacient modifiedPacient, int id)
+        {
+            using (MedicineDbContext db = new MedicineDbContext())
+            {
+                Pacient pac = db.Pacients.Find(id);
+                pac.Fio = modifiedPacient.Fio;
+                pac.Passport = modifiedPacient.Passport;
+                pac.Oms = modifiedPacient.Oms;
+                pac.Job = modifiedPacient.Job;
+                pac.Phone = modifiedPacient.Phone;
+                pac.Position = modifiedPacient.Position;
+                db.SaveChanges();
+            }
+        }
+
+        public void DeletePacient(int id)
+        {
+            using (MedicineDbContext db = new MedicineDbContext())
+            {
+                Pacient pac = db.Pacients.Find(id);
+                PacientAuth auth = db.PacientAuths.Find(id);
+                db.PacientAuths.Remove(auth);
+                db.Pacients.Remove(pac);
+                db.SaveChanges();
+            }
+        }
+
+        public MedOrganization GetMedOrgById(int id)
+        {
+            MedOrganization org;
+
+            using (MedicineDbContext db = new MedicineDbContext())
+            {
+                org = db.MedOrganizations.Find(id);
+            }
+
+            return org;
+        }
+
+        public void CreateDoctor(Doctor dr)
+        {
+            using (MedicineDbContext db = new MedicineDbContext())
+            {
+                db.Doctors.Add(dr);
+                db.SaveChanges();
             }
         }
     }

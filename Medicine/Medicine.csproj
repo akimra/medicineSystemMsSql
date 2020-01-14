@@ -75,11 +75,23 @@
     <Compile Include="Model\Pacient.cs" />
     <Compile Include="Model\PacientAuth.cs" />
     <Compile Include="Model\Result.cs" />
-    <Compile Include="View\AdministratorForms\FormAdministratorCreatePacient.cs">
+    <Compile Include="View\AdministratorForms\FormCreateDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AdministratorForms\FormAdministratorCreatePacient.Designer.cs">
-      <DependentUpon>FormAdministratorCreatePacient.cs</DependentUpon>
+    <Compile Include="View\AdministratorForms\FormCreateDoctor.Designer.cs">
+      <DependentUpon>FormCreateDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdministratorForms\FormCreatePacient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorForms\FormCreatePacient.Designer.cs">
+      <DependentUpon>FormCreatePacient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdministratorForms\FormSelectMedOrg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorForms\FormSelectMedOrg.Designer.cs">
+      <DependentUpon>FormSelectMedOrg.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
@@ -105,8 +117,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\AdministratorForms\FormAdministratorCreatePacient.resx">
-      <DependentUpon>FormAdministratorCreatePacient.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdministratorForms\FormCreateDoctor.resx">
+      <DependentUpon>FormCreateDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdministratorForms\FormCreatePacient.resx">
+      <DependentUpon>FormCreatePacient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdministratorForms\FormSelectMedOrg.resx">
+      <DependentUpon>FormSelectMedOrg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

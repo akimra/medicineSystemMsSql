@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medicine.Model
 {
-    class Administrator : IAuthProfile
+    public class Administrator : IAuthProfile
     {
         public int Id { get; set; }
         public string Login { get; set; }

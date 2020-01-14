@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medicine.Model
 {
-    class Pacient
+    public class Pacient
     {
         public int Id { get; set; }
         public PacientAuth Auth { get; set; }
